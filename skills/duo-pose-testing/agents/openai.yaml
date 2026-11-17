@@ -1,0 +1,3 @@
+interface:
+  display_name: "Duo Pose Testing"
+  short_description: "Run and screenshot an app on iPhone Duo in every pose"

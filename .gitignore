@@ -1,0 +1,7 @@
+.DS_Store
+build/
+fixtures/**/build/
+__pycache__/
+
+# Notes from the session that built the plugin; not part of it
+proposal/

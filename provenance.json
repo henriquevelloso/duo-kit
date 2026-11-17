@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "package_version": "0.1.0",
+  "project_maintainer": "Henrique Velloso",
+  "verified": {
+    "date": "2026-11-17",
+    "xcode": "Xcode 27.2",
+    "xcode_build": "27B52",
+    "ios_simulator_sdk": "27.2",
+    "swift_snippets": "all swift blocks in skills/ type-checked with scripts/duokit.py snippets",
+    "simulator": "fixtures/DuoBookSample run on iPhone Duo simulators (iOS 27.2 Duo runtime and iOS 27.3 beta runtime): closed, open landscape, partially folded landscape, partially folded portrait"
+  },
+  "validation_limits": [
+    "no physical device",
+    "camera accessory not run (simulator has no camera)",
+    "Split View halves not captured",
+    "UIKit code paths described, not compiled",
+    "trigger prompts run once with the plugin; no baseline without it"
+  ],
+  "skills": [
+    "duo-adaptive-layout",
+    "duo-app-readiness",
+    "duo-book-layout",
+    "duo-design-references",
+    "duo-design-review",
+    "duo-fold-and-poses",
+    "duo-pose-testing",
+    "duo-scenes-and-camera",
+    "duo-vertical-bars"
+  ],
+  "skill_file_sha256": {
+    "skills/duo-adaptive-layout/SKILL.md": "73fe2d709b323ab1a88287f3acc286b0e130a7e6cf3db52cb7f079d0e2e62bd1",
+    "skills/duo-adaptive-layout/agents/openai.yaml": "d9ae193e7aa9b10e2d6ce577173260e1595fe6e83cfdd921b7b874cf92e59b37",
+    "skills/duo-app-readiness/SKILL.md": "d6a35eea030fbcf15c7f10acd6c81d723987fa8dee4d1cdf550da6d8e77b079d",
+    "skills/duo-app-readiness/agents/openai.yaml": "e95ff77b4ab3d5e57a90581071600f362519f1de1b7c5127a6256d2cc690eb2e",
+    "skills/duo-app-readiness/references/anti-patterns.md": "fd85b8734119bc6814ca767a96a7e85154bf39e9054ee771c3e95940a288fd7a",
+    "skills/duo-app-readiness/references/sources.md": "1ab7fb64d48c6dc7d984fb3580f254fe9b1f54893a9e57f483579a41d7d53116",
+    "skills/duo-book-layout/SKILL.md": "49561bb149f0cd3799ca5ea2786b28161f99bd579c13d06026670fbd28f1c16d",
+    "skills/duo-book-layout/agents/openai.yaml": "c733c1b790822554a41e46a8fba898b332d24637265f06cd8ecfaf54120b74a0",
+    "skills/duo-book-layout/references/book-spread.md": "8b13bfdd4ddd034a110f188f6bd8880cdba5beb8f04e530bcdaef666187e5b5d",
+    "skills/duo-design-references/SKILL.md": "629364376393f3f1ac3b2c2302e44a8d40b4fc0341bf6ea69a2bf43f95a0f7d3",
+    "skills/duo-design-references/agents/openai.yaml": "1adad60961929d09e7de4e667b256bba86bc315b2361285fca053c705a1a51c2",
+    "skills/duo-design-references/references/duo-gallery.md": "f8c8265d52cfa6f7fd0813aa71901628ef802306f5f815e23220e43a8f9ac867",
+    "skills/duo-design-review/SKILL.md": "db7e7586b9b54ff417c1824da57336524c26b1df466c9b6abade47b9db580bde",
+    "skills/duo-design-review/agents/openai.yaml": "b5c2644f1508fb6fd0d206e68f96a86642d5d6170bd918003c51151581959661",
+    "skills/duo-design-review/references/pose-checklist.md": "94212cfb437032350746855e99a307ed0a59ed2c10e05d9e29f1425a6d6aa60d",
+    "skills/duo-fold-and-poses/SKILL.md": "1534c8b0d49a293c0059623bc7e3629239b8dd54a767af1aa131d1f69aa0b998",
+    "skills/duo-fold-and-poses/agents/openai.yaml": "9b472991ca05f3c879106ebb4e4a34df52c92005b9cf4e552c850ffc5b76cd05",
+    "skills/duo-pose-testing/SKILL.md": "93b9942def49db4e4f35db04756a0415726df0c36a81809e4aa9b21d1ba6f3f9",
+    "skills/duo-pose-testing/agents/openai.yaml": "56d4eec26c192c19f116c0edc71f02c0de21d23b8ead9dcf14579d5613e432d7",
+    "skills/duo-pose-testing/scripts/capture_displays.sh": "1f2f289b12921cbc6fc90f998d927d40579d4b12629461f5dd3eebe0412a9237",
+    "skills/duo-scenes-and-camera/SKILL.md": "9d23cf8a8ea6720e0a218398e5bb81e3315c85a1600a885d0a87d74a6045e046",
+    "skills/duo-scenes-and-camera/agents/openai.yaml": "1c1848b5ab195ca4bd62187eb8bfda850d81b90672361bec2fa9444eb2a2e4e0",
+    "skills/duo-vertical-bars/SKILL.md": "98c05edaf2e1ff76525408d6cc792ced2aba595cd4ac9138c96e0f5e6d9c0d90",
+    "skills/duo-vertical-bars/agents/openai.yaml": "f93fc859bef37cb47e70074ca496920ed37a4688d3949474907d66401cd64618"
+  },
+  "upstream": [
+    {
+      "name": "Apple documentation, HIG and tech talks",
+      "use": "paraphrased and linked",
+      "licence": "Apple; not redistributed"
+    },
+    {
+      "name": "Axiom",
+      "url": "https://github.com/CharlesWiltgen/Axiom",
+      "use": "guidance adapted and rewritten",
+      "licence": "MIT"
+    },
+    {
+      "name": "iPhone Duo by Examples",
+      "url": "https://github.com/artemnovichkov/iPhone-Duo-by-Examples",
+      "use": "studied; recipe written independently",
+      "licence": "MIT"
+    },
+    {
+      "name": "Duo Gallery",
+      "url": "https://duogallery.io/",
+      "use": "described as a source; no content included",
+      "licence": "none granted"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "duo-kit",
+  "metadata": {
+    "description": "Skills for designing, adapting and testing iOS apps on iPhone Duo"
+  },
+  "owner": {
+    "name": "Henrique Velloso"
+  },
+  "plugins": [
+    {
+      "name": "duo-kit",
+      "version": "0.1.0",
+      "source": "./",
+      "description": "Skills for designing, adapting and testing iOS apps on iPhone Duo.",
+      "author": {
+        "name": "Henrique Velloso"
+      }
+    }
+  ]
+}

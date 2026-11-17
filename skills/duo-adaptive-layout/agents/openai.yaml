@@ -1,0 +1,3 @@
+interface:
+  display_name: "Duo Adaptive Layout"
+  short_description: "One layout that grows from the outer to the inner display"

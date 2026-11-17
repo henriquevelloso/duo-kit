@@ -1,0 +1,25 @@
+{
+  "author": {
+    "name": "Henrique Velloso",
+    "url": "https://github.com/henriquevelloso"
+  },
+  "description": "Skills for designing, adapting and testing iOS apps on iPhone Duo: readiness, adaptive layout, the fold and poses, two-page book layout, vertical bars, design references, pose-by-pose review and simulator testing.",
+  "interface": {
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "category": "Developer Tools",
+    "defaultPrompt": [
+      "Check whether this app is ready for iPhone Duo without modifying files."
+    ],
+    "developerName": "Henrique Velloso",
+    "displayName": "Duo Kit — iPhone Duo skills",
+    "longDescription": "Community skills for iPhone Duo, Apple's two-display folding iPhone. Covers what makes it different from an iPad, layout across the outer and inner displays, the fold and device poses, a two-page book layout, vertical bars, design references from shipped apps, pose-by-pose design review and simulator testing. Not an official Apple, OpenAI or Anthropic plugin. No bundled hooks or servers. Sources and licences are recorded in THIRD_PARTY_NOTICES.md.",
+    "shortDescription": "Design, adapt and test apps for iPhone Duo"
+  },
+  "license": "MIT",
+  "name": "duo-kit",
+  "skills": "./skills/",
+  "version": "0.1.0"
+}
