@@ -4,6 +4,7 @@
     "url": "https://github.com/henriquevelloso"
   },
   "description": "Skills for designing, adapting and testing iOS apps on iPhone Duo: readiness, adaptive layout, the fold and poses, two-page book layout, vertical bars, design references, pose-by-pose review and simulator testing.",
+  "homepage": "https://github.com/henriquevelloso/duo-kit",
   "interface": {
     "capabilities": [
       "Read",
@@ -20,6 +21,7 @@
   },
   "license": "MIT",
   "name": "duo-kit",
+  "repository": "https://github.com/henriquevelloso/duo-kit",
   "skills": "./skills/",
   "version": "0.1.0"
 }

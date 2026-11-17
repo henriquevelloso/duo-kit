@@ -15,7 +15,7 @@
     "camera accessory not run (simulator has no camera)",
     "Split View halves not captured",
     "UIKit code paths described, not compiled",
-    "trigger prompts run once with the plugin; no baseline without it"
+    "trigger prompts: 15 of 15 on both harnesses; baseline is seven prompts on Codex only"
   ],
   "skills": [
     "duo-adaptive-layout",

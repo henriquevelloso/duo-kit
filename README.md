@@ -1,8 +1,10 @@
+<img src=".claude-plugin/icon.png" width="96" alt="duo-kit icon">
+
 # duo-kit
 
 Agent skills for designing, adapting and testing iOS apps on **iPhone Duo**, Apple's two-display folding iPhone. For Claude Code and Codex.
 
-Language models learned about adaptive layout from the iPad. iPhone Duo shipped after most of them were trained, so they treat it as a small iPad, or as a device that does not exist. It is neither. duo-kit gives a model the facts and the working procedures: what the device is, how its two displays, side bars and fold behave, how to lay content out like an open book, how to judge a design in every pose, and how to test it on the simulator.
+Language models learned about adaptive layout from the iPad. iPhone Duo shipped after most of them were trained, so they treat it as a small iPad, or as a device that does not exist. It is neither. Asked how a reader screen should look "when the Duo is open in landscape", a clean session without this plugin designed for Microsoft's Surface Duo (see `evals/trigger-prompts.md`). duo-kit gives a model the facts and the working procedures: what the device is, how its two displays, side bars and fold behave, how to lay content out like an open book, how to judge a design in every pose, and how to test it on the simulator.
 
 It is a community project. It is not affiliated with or endorsed by Apple, OpenAI or Anthropic.
 
@@ -52,15 +54,20 @@ Two rules here go beyond Apple's guidance. Both are stated as such inside the sk
 ### Claude Code
 
 ```bash
-claude plugin marketplace add /path/to/duo-kit
+claude plugin marketplace add henriquevelloso/duo-kit
+```
+
+```bash
 claude plugin install duo-kit@duo-kit
 ```
+
+Inside Claude Code the same two steps are `/plugin marketplace add henriquevelloso/duo-kit` and `/plugin install duo-kit@duo-kit`.
 
 Start a new session afterwards. Skills appear as `duo-kit:duo-app-readiness` and so on.
 
 ### Codex
 
-Add the folder to a local marketplace file and enable the plugin. With a personal marketplace at `~/.agents/plugins/marketplace.json`, add an entry whose `source.path` points at this folder, then enable `duo-kit@<marketplace name>` in the Codex configuration and start a new task.
+Clone the repository, add the folder to a local marketplace file, and install it. With a personal marketplace at `~/.agents/plugins/marketplace.json`, add an entry whose `source.path` points at the clone, then run `codex plugin add duo-kit@<marketplace name>` and start a new task. Run the same command again after pulling an update, because Codex keeps its own copy.
 
 ### Optional
 
@@ -80,7 +87,7 @@ See `provenance.json` for the exact Xcode build.
 - The book layout in `fixtures/DuoBookSample` was built and run on an iPhone Duo simulator: closed, open in landscape, partially folded in landscape and partially folded in portrait. The measurements quoted in the skills come from those runs.
 - Simulator facts in `duo-pose-testing` (runtime compatibility, display capture) were checked on the same setup.
 
-Not verified: behavior on a physical device, the camera accessory (the simulator has no camera), Split View halves, and the UIKit equivalents, which are described but not compiled. The trigger prompts in `evals/` were run once with the plugin in both harnesses; results and their limits are recorded there. No baseline without the plugin was obtained.
+Not verified: behavior on a physical device, the camera accessory (the simulator has no camera), Split View halves, and the UIKit equivalents, which are described but not compiled. The trigger prompts in `evals/` were run with the plugin in both harnesses, and seven of them without any plugin in Codex; results and their limits are recorded there.
 
 ## Maintaining
 
