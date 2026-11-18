@@ -9,12 +9,14 @@ Answer each question with yes, no or cannot tell. "Cannot tell" from a still ima
 - Does every bar item have a symbol? Text-only items stay horizontal and cost height.
 - Is content inset from the bar on that side only, with backgrounds running to the edge?
 - Is the corner with the camera free of content and controls?
-- Do the actions that matter most stay visible when the bar overflows?
+- Do the actions that matter most stay visible when the bar overflows? Is the screen's one main action named, so it can be pinned?
+- Where a toolbar and tabs share the bar, is it stated which gives way first: tabs kept on navigation screens, actions kept on task screens?
 
 ## 2. Closed, landscape or standing like a tent (compact width, compact height)
 
 - Does the layout work with very little height? What scrolls?
-- Which items go to the overflow menu, and are the important ones kept?
+- Which items go to the overflow menu, and are the important ones kept? This pose has the least room: expect little beyond the main action to stay.
+- Does every action that can overflow have a title that reads well in a menu, without its symbol?
 - Is the screen useful seen from a distance if the app has a hands-free use?
 
 ## 3. Open, landscape (inner display, regular width)

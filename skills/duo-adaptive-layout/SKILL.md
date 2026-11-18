@@ -115,7 +115,7 @@ struct DetailView: View {
 
 ## Safe areas are asymmetric
 
-Measured on the simulator with a build against the 27.1 SDK: closed, the trailing inset was 84 pt and the leading inset 0; open in landscape, the same; open in portrait, both were 0 and the bars were horizontal. The numbers are an illustration, not constants.
+Measured on the simulator with a build against the 27.1 SDK: closed, the trailing inset was 84 pt and the leading inset 0; open in landscape, the same; open in portrait, both were 0 and the bars were horizontal. Closed in landscape with the device turned the other way, the 84 pt were on the leading side. The numbers are an illustration, not constants.
 
 - SwiftUI keeps content inside the safe area by default. Let only backgrounds ignore it.
 - Do not center on the display or compute `width - inset * 2`. Use the area the view is given.

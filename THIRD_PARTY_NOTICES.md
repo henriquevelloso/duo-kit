@@ -34,4 +34,4 @@ The two-page recipe in `skills/duo-book-layout` and `fixtures/DuoBookSample` was
 
 ## Link-only references
 
-Blog posts and the Readest pull request mentioned in research notes are linked for reading only. No text or code from them is included; Readest is licensed under AGPL-3.0.
+Blog posts, including the Bitrig guides listed in `skills/duo-app-readiness/references/sources.md`, and the Readest pull request mentioned in research notes are linked for reading only. No text or code from them is included; Readest is licensed under AGPL-3.0.

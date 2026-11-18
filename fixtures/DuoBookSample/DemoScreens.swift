@@ -1,7 +1,7 @@
 import SwiftUI
 
 // Screens used for the documentation images. Launch with `-mode reader` or `-mode naive`,
-// and add `-showFold YES` to draw where the fold is.
+// and add `-showFold YES` to draw where the fold is. The measurement screens are in LabScreens.swift.
 
 private let chapter: [String] = [
     "The ferry left at six, before the cafés on the quay had put their chairs out. From the upper deck the town looked like something folded and put away for the night.",

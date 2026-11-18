@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "duo-kit",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "source": "./",
       "description": "Skills for designing, adapting and testing iOS apps on iPhone Duo.",
       "author": {

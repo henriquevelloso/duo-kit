@@ -89,6 +89,14 @@ Cover every row for each screen under test. Skip a row only with a stated reason
 
 Also go from row 1 to row 3 and back in the middle of a task: the screen, scroll position and unsaved input must survive.
 
+On a screen with a toolbar or tabs, in rows 1, 2 and 3 also:
+
+- Open the overflow menu and capture it. Every action that left the bar must be there, with a title that makes sense without its symbol.
+- Repeat with search active and with the keyboard up, where the screen has them. A pinned action may move to the overflow menu while search is active.
+- Repeat at a larger text size, and look for clipped custom controls in the side bar.
+
+A capture taken right after a tap or a rotation can miss the menu or show the turn half done. Capture again before concluding anything.
+
 ## 5. Capture both displays
 
 With two displays, a plain `simctl io screenshot` fails with "Cannot choose between 2 displays". Pass a display id. The bundled script finds the ids and captures both:

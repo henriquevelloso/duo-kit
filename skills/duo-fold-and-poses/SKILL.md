@@ -73,11 +73,13 @@ Sheets, alerts, action sheets, menus, popovers and toolbar buttons move off the 
 An arrangement holds a primary and a secondary view and places them by size, shape and active regions.
 
 - **Split.** Side by side when wider than tall, stacked when taller than wide, adjusted to the fold. Replaces a layout you would have built with `HStack` or `VStack`.
-- **Overlay.** Primary over secondary while closed or flat. Partially folded, the primary moves to the trailing or bottom area and the secondary to the leading or top. Replaces a `ZStack` of controls over content.
-- Limit the axes to control when the secondary appears. If a split cannot use the allowed axis, it shows one view, so keep the other reachable.
+- **Overlay.** The primary is the foreground: over the secondary while closed or flat. Partially folded, the primary moves to the trailing or bottom area and the secondary to the leading or top. Replaces a `ZStack` of controls over content.
+- Limit the axes to control when the secondary appears. A split that cannot use an allowed axis shows the primary only. The default split did the same closed in landscape, so nothing essential may live only in the secondary.
+- `splitArrangementLayoutRatio` on a child asks for a share of the split: one ratio, or a minimum, ideal and maximum per axis. It is a preference; the fold still decides.
+- A child reads `splitArrangementAxis` or `overlayArrangementZIndex` to change its own presentation, such as a compact card while overlaid and full detail once separated. Keep the same functions in both.
 - Put navigation around an arrangement, not inside it. Do not place an arrangement inside a list, a scroll view or a navigation split view.
 
-Measured on the simulator: flat, a horizontal split divided the content area into two equal halves; partially folded, the boundary moved onto the fold. Expect that small shift.
+Measured on the simulator (iOS 27.2): flat, a horizontal split divided the content area into two equal halves; partially folded, the boundary moved onto the fold. Expect that small shift. Closed in portrait the split stacked into two equal halves; closed in landscape only the primary showed. In an overlay the primary's index was 1 while laid over the secondary and 0 once the fold separated them; the secondary's stayed 0.
 
 ```swift
 import SwiftUI
@@ -88,13 +90,23 @@ struct LessonScreen: View {
     var body: some View {
         NavigationStack {
             ArrangementView {
-                Text("Video")          // primary
+                Text("Video")          // primary; asks for about 60% of the split
+                    .splitArrangementLayoutRatio(0.6)
             } secondary: {
-                Text("Transcript")     // secondary
+                Transcript()           // secondary
             }
             .arrangementViewStyle(.split.axes(.horizontal))
             .navigationTitle("Lesson")
         }
+    }
+}
+
+@available(iOS 27.1, *)
+struct Transcript: View {
+    @Environment(\.splitArrangementAxis) private var axis   // nil outside a split arrangement
+
+    var body: some View {
+        Text(axis == .vertical ? "Transcript, short" : "Transcript, with timestamps")
     }
 }
 
@@ -115,12 +127,11 @@ struct ReaderScreen: View {
 
 @available(iOS 27.1, *)
 struct PlaybackControls: View {
-    // The view's layer in the overlay. It changes as the device folds, so a view can
-    // switch presentation; check on the simulator which value matches which state.
+    // Above 0 while this view is laid over the other; 0 once the fold separates them.
     @Environment(\.overlayArrangementZIndex) private var zIndex
 
     var body: some View {
-        Label("Layer \(zIndex)", systemImage: "play.fill")
+        Label(zIndex > 0 ? "Play" : "Play, with the queue", systemImage: "play.fill")
             .padding()
     }
 }

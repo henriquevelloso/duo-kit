@@ -8,6 +8,9 @@ struct DuoBookSampleApp: App {
             case "arrangement": ArrangementScreen()
             case "reader": ReaderDemo()
             case "naive": NaiveDemo()
+            case "toolbar": ToolbarLab()
+            case "split": SplitLab()
+            case "overlay": OverlayLab()
             default: BookScreen()
             }
         }

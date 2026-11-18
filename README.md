@@ -24,6 +24,15 @@ The same screen in the other poses, with no pose-specific code:
 | <img src="docs/images/closed.png" width="240" alt="One page on the outer display with the toolbar on the side"> | <img src="docs/images/laptop-pose.png" width="300" alt="Two pages stacked above and below the fold"> |
 | One page. The toolbar moves to the side by itself. | The pages stack above and below the fold; bars go back to horizontal. |
 
+The same toolbar and tabs with the device closed in landscape, where the side bar has the least room. One line of code decides which of the two gives way:
+
+| Default: the tabs are kept | With `duo-vertical-bars`: this screen keeps its actions |
+|---|---|
+| <img src="docs/images/bars-keep-tabs.png" width="420" alt="Side bar with one action, an overflow button and four tabs"> | <img src="docs/images/bars-keep-toolbar.png" width="420" alt="Side bar with four actions, an overflow button and the tabs collapsed to one button"> |
+| Only the pinned action stays. Five actions are in the overflow menu. | The pinned action and three more stay. The tabs collapse to one button. |
+
+The text inside these two captures is the sample's own readout of what the system reports.
+
 These images come from `fixtures/DuoBookSample`, the sample app in this repository, running on Apple's simulator. For screenshots of real shipped apps, see the sources that `duo-design-references` describes; their screenshots belong to the apps' makers and are not reproduced here.
 
 ## Skills
@@ -85,6 +94,8 @@ See `provenance.json` for the exact Xcode build.
 
 - Every Swift block in the skills type-checks against the iOS simulator SDK.
 - The book layout in `fixtures/DuoBookSample` was built and run on an iPhone Duo simulator: closed, open in landscape, partially folded in landscape and partially folded in portrait. The measurements quoted in the skills come from those runs.
+- Toolbar overflow order, visibility priorities, compression and the vertical-bar opt-out were run on the same simulator, closed and open in both orientations. Split and overlay arrangements were run closed, flat and partially folded. The lab screens are in the sample app (`-mode toolbar`, `-mode split`, `-mode overlay`).
+- Statements about API behavior that were not run are taken from the documentation comments in the SDK and say so.
 - Simulator facts in `duo-pose-testing` (runtime compatibility, display capture) were checked on the same setup.
 
 Not verified: behavior on a physical device, the camera accessory (the simulator has no camera), Split View halves, and the UIKit equivalents, which are described but not compiled. The trigger prompts in `evals/` were run with the plugin in both harnesses, and seven of them without any plugin in Codex; results and their limits are recorded there.
