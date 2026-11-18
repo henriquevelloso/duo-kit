@@ -6,7 +6,7 @@ argument-hint: "[screen name]"
 
 # Two-page book layout on iPhone Duo
 
-A layout convention for the open inner display: content sits on two pages, one each side of the fold, the way an open book does. The pages do not move when the device goes from flat to partially folded.
+A layout convention for the open inner display: content sits on two pages, one each side of the fold, the way an open book does. The pages do not move when the device goes from flat to partially folded. The two pages are usually not the same width: the vertical bar takes room from one side, so the page beside the bar is the narrower one.
 
 <!-- duo-kit:card:start -->
 > **iPhone Duo is not an iPad.** Read this before answering.
@@ -45,9 +45,10 @@ A screen that spans must still move its controls off the fold while partially fo
 2. **Decide split or span** with the table. Write the reason for any span.
 3. **Name the two pages.** First page is what the outer display shows alone; the second is what the inner display adds. For reading, they are consecutive pages. For master–detail, the detail is the first page, because that is what remains when the device closes.
 4. **Use the recipe** in [references/book-spread.md](references/book-spread.md). Do not compute the middle of the screen: a side bar makes the content area off-center from the fold.
-5. **Keep position across poses.** Store the reading position as a page or content anchor, never as a spread index. Closing the device shows the first page of the current spread; opening it shows that page on the leading side.
-6. **Page two at a time** while split, one at a time while single. Page-turn controls sit at the outer edges of the spread, not at the fold.
-7. **Test** closed, open flat, partially folded like a book, partially folded like a laptop, flat in portrait, and both Split View halves, with `duo-pose-testing`.
+5. **Let each page fill its own side.** Do not force the two pages to one width. Lay each page out from the width it is given. See "Page widths" below.
+6. **Keep position across poses.** Store the reading position as a page or content anchor, never as a spread index. Closing the device shows the first page of the current spread; opening it shows that page on the leading side.
+7. **Page two at a time** while split, one at a time while single. Page-turn controls sit at the outer edges of the spread, not at the fold.
+8. **Test** closed, open flat, partially folded like a book, partially folded like a laptop, flat in portrait, and both Split View halves, with `duo-pose-testing`. Run the open poses once in a right-to-left language.
 
 ## Using the recipe
 
@@ -76,7 +77,21 @@ Measured on the iPhone Duo simulator (iOS 27.2 runtime, Xcode 27.2). Numbers are
 | Open flat, portrait | one, inactive, running side to side | One page |
 | Split View half | compact width | One page |
 
-With a vertical bar on the trailing side, the content area was 867 pt wide and the fold sat at 455–495 pt, so the leading side had 455 pt and the trailing side 372 pt. The recipe gives both pages the narrower width and keeps them against the fold, leaving the spare space at the outer edge.
+## Page widths
+
+The fold is in the middle of the display, and the vertical bar takes its room from one side only. So the two sides of the fold differ, and each page fills its own side. Forcing both pages to the narrower width leaves an empty band at the outer edge of the wider side.
+
+Measured on the same simulator, open in landscape, flat and partially folded: the content area was 867 pt wide, the fold region was 40 pt wide and the bar took 84 pt on the right.
+
+| Run | Bar | First page | Second page |
+|---|---|---|---|
+| English | right, the trailing edge | left, 455 pt | right, 371 pt |
+| Arabic, and English with right-to-left forced | right, now the leading edge | right, 371 pt | left, 455 pt |
+
+- **The page beside the bar is the narrower one.** In a left-to-right language that is the second page. In a right-to-left language the page order mirrors and the bar does not move, so it is the first page.
+- **Do not assume which side has the bar.** In these runs it stayed on the right in both landscape rotations and in both layout directions, which matches Apple's guidance that vertical controls stay with the hardware. The SDK's documentation comment for `toolbarVerticalEdge` (iOS 27.2 SDK) says the system chooses the edge from the locale and the device. A bar on the left of the open inner display was not reproduced. The recipe measures each side, so it needs no change if the bar is on the other side.
+- **Lay each page out from its own width.** Flowing text reflows per page. A paginated reader measures each page separately, because a page holds more text on the wider side.
+- **Equal pages are an option, not the default.** Use `matchesPageWidths: true` when the content is made of fixed-size pages, such as a scanned book or a PDF spread, or when two panels must line up row by row. Both pages then take the narrower width and stay against the fold, and the spare room is at the outer edge. Say why in the design notes.
 
 ## Why not `ArrangementView` for this
 
@@ -86,7 +101,8 @@ With a vertical bar on the trailing side, the content area was 867 pt wide and t
 
 - [ ] The fold comes from the division reserved region with `.includeInactive`, not from the screen's midpoint.
 - [ ] Nothing interactive and no line of text crosses the fold in any pose.
-- [ ] Both pages have the same width; spare space is at the outer edge.
+- [ ] Each page fills its own side of the fold; no empty band beside the wider page. Equal pages only with a stated reason.
+- [ ] No layout assumes which page is wider or which side has the bar; checked in a right-to-left language.
 - [ ] The outer display and Split View halves show one page with the same content reachable.
 - [ ] Position survives closing and opening.
 - [ ] Any spanning screen has its reason written down.

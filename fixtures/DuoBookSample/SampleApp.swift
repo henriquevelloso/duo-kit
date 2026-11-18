@@ -17,10 +17,11 @@ struct DuoBookSampleApp: App {
     }
 }
 
+// `-matched YES` gives both pages the width of the narrower side.
 struct BookScreen: View {
     var body: some View {
         NavigationStack {
-            BookSpread {
+            BookSpread(matchesPageWidths: UserDefaults.standard.bool(forKey: "matched")) {
                 PageView(number: 1, tint: .orange)
             } second: {
                 PageView(number: 2, tint: .teal)
@@ -76,6 +77,7 @@ struct Probe: View {
     @Environment(\.horizontalSizeClass) private var horizontal
     @Environment(\.verticalSizeClass) private var vertical
     @Environment(\.toolbarVerticalEdge) private var barEdge
+    @Environment(\.layoutDirection) private var direction
     @State private var hinge = "hinge: –"
 
     var body: some View {
@@ -83,7 +85,10 @@ struct Probe: View {
             let all = proxy.reservedRegions(kind: .division, options: .includeInactive)
             let active = proxy.reservedRegions(kind: .division)
             let insets = proxy.safeAreaInsets
+            // `.fixed` reports the fold from the left edge; the default mirrors it for right-to-left.
+            let unmirrored = proxy.reservedRegions(kind: .division, options: .includeInactive, layoutDirectionBehavior: .fixed)
             VStack(alignment: .leading, spacing: 2) {
+                Text("direction:\(direction == .rightToLeft ? "RTL" : "LTR")  fold from the left: " + unmirrored.map { "x\(Int($0.frame.minX))" }.joined(separator: ","))
                 Text("size \(Int(proxy.size.width))×\(Int(proxy.size.height))  h:\(name(horizontal)) v:\(name(vertical))")
                 Text("insets L\(Int(insets.leading)) T\(Int(insets.top)) R\(Int(insets.trailing)) B\(Int(insets.bottom))  bar:\(barEdge.map { $0 == .leading ? "leading" : "trailing" } ?? "none")")
                 Text("division all:\(all.count) active:\(active.count)  " + all.map { "x\(Int($0.frame.minX)) y\(Int($0.frame.minY)) w\(Int($0.frame.width)) h\(Int($0.frame.height)) \($0.isActive ? "ACTIVE" : "inactive")" }.joined(separator: "; "))

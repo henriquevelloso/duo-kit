@@ -26,7 +26,8 @@ Answer each question with yes, no or cannot tell. "Cannot tell" from a still ima
 - Are the same functions present as in pose 1?
 - Are bar items in the same order and relative position as in pose 1?
 - Do grids have an even number of columns?
-- Is spare space at the outer edge, not at the fold?
+- Does each page fill its own side of the fold? The page beside the bar is narrower; an empty band at the outer edge of the other page is wasted space unless equal pages have a stated reason.
+- Does the design still work with the narrow page on the other side, as in a right-to-left language?
 
 ## 4. Partially folded, like a book (fold runs top to bottom)
 

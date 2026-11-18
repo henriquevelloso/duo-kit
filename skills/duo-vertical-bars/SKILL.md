@@ -37,7 +37,7 @@ In the iOS 27.2 SDK the APIs come from two releases. `topBarPinnedTrailing`, `vi
 | Sheet on the inner display | Horizontal when centered or leading, vertical when trailing |
 | Split View multitasking | Each app's bar on its own outer edge |
 
-The bar stays on the hardware side: it does not flip for right-to-left languages. The status bar and the Dynamic Island share that edge.
+The bar stays on the hardware side: it does not flip for right-to-left languages. The status bar and the Dynamic Island share that edge. Run in Arabic on the simulator (iOS 27.2), open in landscape, the bar stayed on the right and `toolbarVerticalEdge` read `.leading`. Read that value or the safe area; do not assume the bar is trailing.
 
 A vertical bar does not replace the top bar. In every vertical pose run on the simulator, a horizontal bar stayed at the top with the title and the items that cannot go vertical.
 

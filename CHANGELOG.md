@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.1.2 — 2026-11-18
+
+Book layout: the two pages are no longer forced to one width.
+
+- `duo-book-layout`: each page fills its own side of the fold. The side bar takes room from one side, so the page beside it is narrower (measured: 455 and 371 pt). Before, both pages took the narrower width and an empty band was left at the outer edge. New "Page widths" section, runbook step and checklist items.
+- `BookSpread`: pages fill their sides by default. `matchesPageWidths` keeps equal pages for fixed-size pages or panels that must line up, with the reason stated.
+- Right-to-left, run on the simulator in Arabic and with right-to-left forced: the bar stayed on the right, the page order mirrored, and the first page became the narrower one. The reserved-region query mirrors by default, so the recipe needs no branch on layout direction.
+- `duo-vertical-bars` and the review checklist: do not assume the bar is on the trailing edge; check the narrow page on either side.
+- Documentation image `book-layout.png` captured again. The sample's probe prints the layout direction; `-matched YES` shows equal pages.
+
+Not reproduced: a side bar on the left of the open inner display. No setting that moves it was found in Apple's two pages or in the simulator's Settings search. The SDK's documentation comment says the system chooses the edge from the locale and the device. Skill descriptions did not change, so the trigger prompts were not run again.
+
 ## 0.1.1 — 2026-11-17
 
 Toolbars and arrangements, re-checked and measured.

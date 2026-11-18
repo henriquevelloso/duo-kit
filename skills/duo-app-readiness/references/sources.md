@@ -33,7 +33,7 @@ Apple publishes no point dimensions for the two displays. Community measurements
 
 ## What was run on the simulator
 
-On an iPhone Duo simulator with the iOS 27.2 runtime, using `fixtures/DuoBookSample`: the book layout and reserved regions in four poses; toolbar overflow, priorities, compression and the vertical-bar opt-out closed in both orientations and open in both; split and overlay arrangements closed, flat and partially folded. Numbers quoted from those runs are labelled as measured where they appear.
+On an iPhone Duo simulator with the iOS 27.2 runtime, using `fixtures/DuoBookSample`: the book layout and reserved regions in four poses; the open pose again in Arabic, with right-to-left layout forced and in the other landscape rotation, for page widths and the side of the bar; toolbar overflow, priorities, compression and the vertical-bar opt-out closed in both orientations and open in both; split and overlay arrangements closed, flat and partially folded. Numbers quoted from those runs are labelled as measured where they appear.
 
 ## Statements that rest on one source
 

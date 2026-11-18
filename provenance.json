@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "package_version": "0.1.1",
+  "package_version": "0.1.2",
   "project_maintainer": "Henrique Velloso",
   "verified": {
-    "date": "2026-11-17",
+    "date": "2026-11-18",
     "xcode": "Xcode 27.2",
     "xcode_build": "27B52",
     "ios_simulator_sdk": "27.2",
     "swift_snippets": "all swift blocks in skills/ type-checked with scripts/duokit.py snippets",
-    "simulator": "fixtures/DuoBookSample run on iPhone Duo simulators (iOS 27.2 Duo runtime and iOS 27.3 beta runtime): book layout closed, open landscape, partially folded landscape, partially folded portrait; toolbar lab (iOS 27.2 Duo runtime) closed portrait, closed landscape, open portrait, open landscape, partially folded landscape; split and overlay lab closed portrait, closed landscape (split only), open landscape, partially folded landscape",
+    "simulator": "fixtures/DuoBookSample run on iPhone Duo simulators (iOS 27.2 Duo runtime and iOS 27.3 beta runtime): book layout closed, open landscape, partially folded landscape, partially folded portrait; toolbar lab (iOS 27.2 Duo runtime) closed portrait, closed landscape, open portrait, open landscape, partially folded landscape; split and overlay lab closed portrait, closed landscape (split only), open landscape, partially folded landscape; book layout open landscape and partially folded landscape again on 2026-11-18 (iOS 27.2 Duo runtime) with pages filling their sides, with matched pages, in Arabic, with right-to-left layout forced, and in the other landscape rotation",
     "sdk_doc_comments": "toolbar and arrangement behavior not run on the simulator is taken from the documentation comments shipped in the iOS 27.2 simulator SDK"
   },
   "validation_limits": [
@@ -19,7 +19,8 @@
     "trigger prompts: 15 of 15 on both harnesses; baseline is seven prompts on Codex only",
     "prefersToolbarItems compression run in closed landscape only",
     "pinned action overflowing while search is active: from SDK documentation, not run",
-    "horizontal-only item hidden without a horizontal bar: from SDK documentation, not reproduced"
+    "horizontal-only item hidden without a horizontal bar: from SDK documentation, not reproduced",
+    "side bar on the left of the open inner display: not reproduced; the bar stayed on the right in both landscape rotations and both layout directions"
   ],
   "skills": [
     "duo-adaptive-layout",
@@ -38,16 +39,16 @@
     "skills/duo-app-readiness/SKILL.md": "d6a35eea030fbcf15c7f10acd6c81d723987fa8dee4d1cdf550da6d8e77b079d",
     "skills/duo-app-readiness/agents/openai.yaml": "e95ff77b4ab3d5e57a90581071600f362519f1de1b7c5127a6256d2cc690eb2e",
     "skills/duo-app-readiness/references/anti-patterns.md": "fd85b8734119bc6814ca767a96a7e85154bf39e9054ee771c3e95940a288fd7a",
-    "skills/duo-app-readiness/references/sources.md": "9d5bb5a6cfaa11bbcf27ea1644e2ad6ce06a3a10e77362db23675b111190b557",
-    "skills/duo-book-layout/SKILL.md": "49561bb149f0cd3799ca5ea2786b28161f99bd579c13d06026670fbd28f1c16d",
+    "skills/duo-app-readiness/references/sources.md": "6c799522c5fc4eebc335006d503723ab00c50fb711b3e3a266dfb2ed76109201",
+    "skills/duo-book-layout/SKILL.md": "7de71081be32f8cc0f7ce96aa0a4a0b474a9b4957705f13d4a1cc24e2bb7b1a7",
     "skills/duo-book-layout/agents/openai.yaml": "c733c1b790822554a41e46a8fba898b332d24637265f06cd8ecfaf54120b74a0",
-    "skills/duo-book-layout/references/book-spread.md": "8b13bfdd4ddd034a110f188f6bd8880cdba5beb8f04e530bcdaef666187e5b5d",
+    "skills/duo-book-layout/references/book-spread.md": "7f741321387cce2f5fa651206a4d11aa95ce6bb77af9ebd3c4eee2931b8cdcb4",
     "skills/duo-design-references/SKILL.md": "629364376393f3f1ac3b2c2302e44a8d40b4fc0341bf6ea69a2bf43f95a0f7d3",
     "skills/duo-design-references/agents/openai.yaml": "1adad60961929d09e7de4e667b256bba86bc315b2361285fca053c705a1a51c2",
     "skills/duo-design-references/references/duo-gallery.md": "f8c8265d52cfa6f7fd0813aa71901628ef802306f5f815e23220e43a8f9ac867",
     "skills/duo-design-review/SKILL.md": "db7e7586b9b54ff417c1824da57336524c26b1df466c9b6abade47b9db580bde",
     "skills/duo-design-review/agents/openai.yaml": "b5c2644f1508fb6fd0d206e68f96a86642d5d6170bd918003c51151581959661",
-    "skills/duo-design-review/references/pose-checklist.md": "4da3f6f7bf05325b61ec7c72eb94c7812a3a233f62c5267a83d6403db3ff3cb1",
+    "skills/duo-design-review/references/pose-checklist.md": "6fe7d7f12c0be9e0ce9e9f94f8cecbe8218bde990f3adf53f4ae16e9fa7b99a4",
     "skills/duo-fold-and-poses/SKILL.md": "50bf760ef1edc5a7094ee79f9d9a5af067198ae517b6d76f8bab25dfab61117c",
     "skills/duo-fold-and-poses/agents/openai.yaml": "9b472991ca05f3c879106ebb4e4a34df52c92005b9cf4e552c850ffc5b76cd05",
     "skills/duo-pose-testing/SKILL.md": "f1d2cd7f9c19b42573b368213696ff14b4ac936bd5ba76978dcbfb1852c77dc2",
@@ -55,7 +56,7 @@
     "skills/duo-pose-testing/scripts/capture_displays.sh": "1f2f289b12921cbc6fc90f998d927d40579d4b12629461f5dd3eebe0412a9237",
     "skills/duo-scenes-and-camera/SKILL.md": "9d23cf8a8ea6720e0a218398e5bb81e3315c85a1600a885d0a87d74a6045e046",
     "skills/duo-scenes-and-camera/agents/openai.yaml": "1c1848b5ab195ca4bd62187eb8bfda850d81b90672361bec2fa9444eb2a2e4e0",
-    "skills/duo-vertical-bars/SKILL.md": "e8804c8ba9bdfa2d45b107e01bd1c9f1b5f6a46e911288f9db2cb14677eebb81",
+    "skills/duo-vertical-bars/SKILL.md": "64a1c7a66e2736a5f67807bc35978dbf1f79cd120f69b0d96c2741ed3ce4d91c",
     "skills/duo-vertical-bars/agents/openai.yaml": "f93fc859bef37cb47e70074ca496920ed37a4688d3949474907d66401cd64618"
   },
   "upstream": [

@@ -15,7 +15,7 @@ The same reading screen on the iPhone Duo simulator, partially folded. The red b
 | What a model builds by default | With `duo-book-layout` |
 |---|---|
 | <img src="docs/images/without-book-layout.png" width="420" alt="One column of text running across the fold"> | <img src="docs/images/book-layout.png" width="420" alt="Two pages, one each side of the fold"> |
-| One wide column, as on a tablet. Every line crosses the fold. | Two pages either side of the fold. The layout is identical flat and partially folded. |
+| One wide column, as on a tablet. Every line crosses the fold. | Two pages either side of the fold. The layout is identical flat and partially folded. The page beside the side bar is the narrower one. |
 
 The same screen in the other poses, with no pose-specific code:
 
@@ -55,7 +55,7 @@ Two optional Claude Code agents wrap the noisiest work: `duo-readiness-scan` and
 
 Two rules here go beyond Apple's guidance. Both are stated as such inside the skills.
 
-- **Book layout.** With the device open in landscape, content screens and master–detail pairs use two pages either side of the fold, whether the device is flat or partially folded. Apple only requires keeping content off the fold while it is partially folded. Scrolling lists, maps and immersive media may span the display, with the reason stated.
+- **Book layout.** With the device open in landscape, content screens and master–detail pairs use two pages either side of the fold, whether the device is flat or partially folded. Apple only requires keeping content off the fold while it is partially folded. Scrolling lists, maps and immersive media may span the display, with the reason stated. The two pages are not forced to one width: each fills its own side of the fold, and the side bar makes one side narrower.
 - **Optimized references only.** When researching shipped apps, only apps verified as optimized for iPhone Duo on the day of the research count. Partly optimized, unoptimized and unverified apps are left out.
 
 ## Install
@@ -93,12 +93,12 @@ Clone the repository, add the folder to a local marketplace file, and install it
 See `provenance.json` for the exact Xcode build.
 
 - Every Swift block in the skills type-checks against the iOS simulator SDK.
-- The book layout in `fixtures/DuoBookSample` was built and run on an iPhone Duo simulator: closed, open in landscape, partially folded in landscape and partially folded in portrait. The measurements quoted in the skills come from those runs.
+- The book layout in `fixtures/DuoBookSample` was built and run on an iPhone Duo simulator: closed, open in landscape, partially folded in landscape and partially folded in portrait. The measurements quoted in the skills come from those runs. The open pose was also run in Arabic and with right-to-left layout forced, to check which page is beside the bar.
 - Toolbar overflow order, visibility priorities, compression and the vertical-bar opt-out were run on the same simulator, closed and open in both orientations. Split and overlay arrangements were run closed, flat and partially folded. The lab screens are in the sample app (`-mode toolbar`, `-mode split`, `-mode overlay`).
 - Statements about API behavior that were not run are taken from the documentation comments in the SDK and say so.
 - Simulator facts in `duo-pose-testing` (runtime compatibility, display capture) were checked on the same setup.
 
-Not verified: behavior on a physical device, the camera accessory (the simulator has no camera), Split View halves, and the UIKit equivalents, which are described but not compiled. The trigger prompts in `evals/` were run with the plugin in both harnesses, and seven of them without any plugin in Codex; results and their limits are recorded there.
+Not verified: behavior on a physical device, a side bar on the left of the open inner display, the camera accessory (the simulator has no camera), Split View halves, and the UIKit equivalents, which are described but not compiled. The trigger prompts in `evals/` were run with the plugin in both harnesses, and seven of them without any plugin in Codex; results and their limits are recorded there.
 
 ## Maintaining
 
